@@ -34,7 +34,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut scope = Scope::new();
 
     // Run the main script
-    engine.run_file_with_scope(&mut scope, "scripts/main.rhai".into())?;
+    engine.run_file_with_scope(&mut scope, "scripts/snake.rhai".into())?;
 
     Ok(())
 }

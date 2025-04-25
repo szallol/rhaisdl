@@ -1,7 +1,8 @@
-use rhai::{Dynamic, Engine, EvalAltResult, Scope};
+use rand::Rng;
+use rhai::{Dynamic, Engine, EvalAltResult};
 use sdl3::EventPump;
 use sdl3::event::Event;
-use sdl3::keyboard::{Keycode, Scancode};
+use sdl3::keyboard::Scancode;
 use sdl3::mouse::MouseButton;
 use sdl3::pixels::Color;
 use sdl3::rect::{Point, Rect};
@@ -472,5 +473,11 @@ pub fn register_sdl_module(engine: &mut Engine, sdl_context: Arc<Mutex<SDLContex
                     Default::default(),
                 ))
             })
+    });
+
+    // Register random number generator
+    engine.register_fn("rand", |min: i64, max: i64| -> i64 {
+        let mut rng = rand::rng();
+        rng.gen_range(min..=max)
     });
 }
