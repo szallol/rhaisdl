@@ -1,0 +1,17 @@
+[package]
+name = "rhaisdl"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "rhai_sdl3"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rhaisdl"
+path = "src/main.rs"
+
+[dependencies]
+rhai = "1.21.0"
+sdl3 = { version = "0.14.25", features = ["build-from-source-static"] }
+
